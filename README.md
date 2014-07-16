@@ -61,10 +61,10 @@ lua undoc.lua [INPUT FILE] (OUTPUT FILE)
 If no output file is specified, undoc will output to `stdout`.
 
 ## Language
-Note that for the purposes of these examples, all output will presented in the form of a pseudo-lua table. This approximates but does not reflect the actual output of undoc; see [output format](#output) for actual output.
+Note that for the purposes of these examples, all output will presented in the form of a pseudo-lua table. This approximates but does not reflect the actual output of undoc; see [output format](#output-format) for actual output.
 
 ### whitespace
-Undoc ignores all whitespace, including indentation, although its use is encouraged for readability. (See [example code](#examplecode) for an exception.)
+Undoc ignores all whitespace, including indentation, although its use is encouraged for readability. (See [example code](#example-code) for an exception.)
 
 ### comments
 Lines that start with `//` are comments. Comments are treated as blank lines during processing. Multiline comments are not allowed - use multiple single-line comments instead. Comments must take up their whole line.
