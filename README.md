@@ -1,6 +1,6 @@
 # undoc
 
-**current version: 1.0 - July 16, 2014**
+**current version: 1.1 - July 21, 2014**
 
 ## Table of Contents
 
@@ -14,6 +14,7 @@
     - [comments](#comments)
     - [scoping](#scoping)
     - [back operator](#back-operator)
+    - [includes](#includes)
 - [Elements](#elements)
     - [packages](#packages)
     - [classes](#classes)
@@ -126,6 +127,13 @@ class4 = {
 ```
 
 By listing elements in reverse scope order, you can avoid needing to use the back operator entirely.
+
+### includes
+Lines that start with a bang (`!`) are includes. Includes allow you to import external undoc files into your current file.
+
+File paths are written using slashes (`/`) regardless of your OS's directory separator. This makes undoc 100% portable. File paths are relative to the file that imports them.
+
+Undoc treats imported files the same way it would if the file's contents were used instead of the import statement. The scope persists through file imports, so be careful. This also means the same file can be imported more than once.
 
 ## Elements
 
