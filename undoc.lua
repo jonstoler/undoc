@@ -1,7 +1,7 @@
 #!/usr/local/bin/lua
 
 --[[
-	undoc 1.1
+	undoc 1.1.1
 	by Jonathan Stoler
 	https://github.com/jonstoler
 --]]
@@ -10,8 +10,8 @@ local parser = {
 	name = "undoc",
 	author = "Jonathan Stoler",
 	url = "https://github.com/jonstoler/undoc",
-	version = "1.1",
-	decimalVersion = 1.1,
+	version = "1.1.1",
+	decimalVersion = 1.11,
 }
 
 local function trim(l)
@@ -33,6 +33,16 @@ local function split(str, delim)
 		table.insert(result, match)
 	end
 	return result
+end
+
+local scriptPath = ""
+if package.config:sub(1, 1) == "/" then -- UNIX
+	scriptPath = os.getenv("PWD") .. "/"
+else -- assume Windows
+	local f = assert(io.popen("echo %cd%", "r"))
+	local s = assert(f:read("*a"))
+	f:close()
+	scriptPath = s:gsub("[\n\r]+", "")
 end
 
 local scopeLevel = {
@@ -143,7 +153,7 @@ function processFile(filename)
 
 	local filepath = split(path(filename), "/")
 	table.remove(filepath)
-	filepath = table.concat(filepath, "/") .. "/"
+	filepath = scriptPath .. table.concat(filepath, "/") .. "/"
 
 	while(currentLine <= #lines) do
 		local line = lines[currentLine]

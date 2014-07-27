@@ -1,6 +1,6 @@
 # undoc
 
-**current version: 1.1 - July 21, 2014**
+**current version: 1.1.1 - July 27, 2014**
 
 ## Table of Contents
 
